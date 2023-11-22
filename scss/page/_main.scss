@@ -126,23 +126,80 @@
             margin-bottom: 55px;
         }
 
-        .roller-wrapper{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .roller{
+        .rolling-container{
+            .rolling-top-wrapper{
                 display: flex;
-                gap: 20px;
+                overflow: hidden;
+                margin-bottom: 20px;
 
-                & > li > a{
-                    display: flex;
-                    width: 285px;
-                    height: 110px;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 10px;
-                    background-color: white;
+                .rolling-top-box{
+                    &.top-original{
+                        animation-name: rollingTopAni01;
+                        animation-duration: 50s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                    }
+
+                    &.top-clone{
+                        animation-name: rollingTopAni02;
+                        animation-duration: 50s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                    }
+                    
+                    .roller-top{
+                        display: flex;
+        
+                        & > li > a{
+                            display: flex;
+                            width: 285px;
+                            height: 110px;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 10px;
+                            background-color: white;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+
+            .rolling-bottom-wrapper{
+                display: flex;
+                overflow: hidden;
+                margin-bottom: 20px;
+
+                .rolling-bottom-box{
+                    &.bottom-original{
+                        animation-name: rollingBottomAni01;
+                        animation-duration: 50s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                        transform: translateX(-137%);
+                    }
+
+                    &.bottom-clone{
+                        animation-name: rollingBottomAni02;
+                        animation-duration: 50s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                        transform: translateX(-137%);
+                    }
+                    
+                    .roller-bottom{
+                        display: flex;
+        
+                        & > li > a{
+                            display: flex;
+                            width: 285px;
+                            height: 110px;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 10px;
+                            background-color: white;
+                            margin-right: 20px;
+                        }
+                    }
                 }
             }
         }
@@ -398,4 +455,26 @@
             }
         }
     }//sec04-container
+}
+
+@keyframes rollingTopAni01 {
+    0% { transform: translateX(0%); }
+    50% { transform: translateX(-100%); }
+    50.01% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}
+
+@keyframes rollingTopAni02 {
+    0% { transition: translateX(0%); }
+    100% { transform: translateX(-200%); }
+}
+
+@keyframes rollingBottomAni01 {
+    0% { transition: translateX(-137%); }
+    100% { transform: translateX(-37%); }
+}
+
+@keyframes rollingBottomAni02 {
+    0% { transition: translateX(-137%); }
+    100% { transform: translateX(-37%); }
 }
